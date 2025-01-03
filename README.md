@@ -2,14 +2,14 @@
 
 ## Overview
 
-This project is part of my MSc in Artificial Intelligence, focusing on **Time-Series Analysis** applied to financial data. The dataset used for this analysis is the **Online Retail Dataset**, a transactional dataset containing 12 months of sales for a UK-based online retailer. 
+This project is part of my MSc in Artificial Intelligence, focusing on **Time-Series Analysis** applied to financial data. The dataset used for this analysis is the **Online Retail Dataset**, a transactional dataset containing 12 months of sales for a UK-based online retailer.
 
-The primary goal of this project was to perform exploratory data analysis (EDA), implement time-series forecasting using ARIMA, and validate predictions to gain actionable insights about the retailer's revenue trends and seasonal behaviors.
+The primary goal of this project was to perform exploratory data analysis (EDA), implement time-series forecasting using **ARIMA** and **Prophet**, and validate predictions to gain actionable insights about the retailer's revenue trends and seasonal behaviors.
 
 ## Project Objectives
 
 - Perform comprehensive exploratory data analysis (EDA) to understand customer behavior, product performance, and seasonal trends.
-- Develop and validate a **Time-Series Model (ARIMA)** to forecast future revenue.
+- Develop and validate **Time-Series Models (ARIMA and Prophet)** to forecast future revenue.
 - Use statistical methods like **ANOVA** to understand differences in revenue distribution across time periods.
 - Present findings with clear visualizations and insights to aid decision-making.
 
@@ -21,7 +21,7 @@ The dataset used in this project can be accessed from the **UCI Machine Learning
 ### Dataset Description
 
 - **Transactions**: 541,909 rows
-- **Features**: 
+- **Features**:
   - `InvoiceNo`: Invoice number.
   - `StockCode`: Product code.
   - `Description`: Product name.
@@ -43,9 +43,11 @@ The dataset used in this project can be accessed from the **UCI Machine Learning
 
 ### 2. **Time-Series Forecasting**
 
-- **Model Used**: ARIMA (AutoRegressive Integrated Moving Average).
+- **Models Used**:
+  - **ARIMA (AutoRegressive Integrated Moving Average)**: Used for short-term forecasting.
+  - **Prophet**: A robust model for handling seasonality and trend changes.
 - **Forecasting**: Revenue prediction for three future months.
-- **Validation**: Split data into training and testing sets to calculate MAPE and RMSE.
+- **Validation**: Split data into training and testing sets to calculate MAPE and RMSE for both models.
 
 ### 3. **Statistical Testing**
 
@@ -58,17 +60,22 @@ The dataset used in this project can be accessed from the **UCI Machine Learning
 - **Top Products**: Identified the top 5 products contributing the most to revenue.
 - **Customer Insights**: Top customers were analyzed for purchasing patterns and frequency.
 - **Seasonal Patterns**: Revenue peaks in November and December due to holiday season sales.
-- **Forecast Validation**: The ARIMA model provided reasonable forecasts, with an RMSE of approximately **311,650**.
+- **Forecast Validation**:
+  - **ARIMA**: RMSE of approximately **311,650**, MAPE of **33.5%**.
+  - **Prophet**: RMSE of approximately **329,113**, MAPE of **36.6%**.
+  - **ARIMA** outperformed Prophet in terms of accuracy, likely due to the smaller dataset size and simpler seasonality.
 
 ---
 
 ## Results
 
 1. **Forecasting Performance**:
-   - Predictions for the first three months of 2012 showed promising trends.
-   - The model was validated using MAPE (33.5%) and RMSE metrics.
+
+   - ARIMA demonstrated slightly better accuracy compared to Prophet, suggesting its suitability for this dataset.
+   - Both models forecasted similar trends for the upcoming months.
 
 2. **Seasonal Trends**:
+
    - Sales increase significantly in Q4 due to holiday season shopping.
    - Revenue drops in the early months of the year (January and February).
 
@@ -83,6 +90,7 @@ The dataset used in this project can be accessed from the **UCI Machine Learning
 ### Requirements
 
 Install the required Python libraries:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -90,12 +98,14 @@ pip install -r requirements.txt
 ### Steps to Run
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/DiegoAmaxmandro/Programming_for_AI_Final_Project.git
    cd Programming_for_AI_Final_Project
    ```
 
 2. Open the Jupyter Notebook:
+
    ```bash
    jupyter notebook final_project.ipynb
    ```
@@ -110,7 +120,7 @@ Some key visualizations include:
 
 - **Revenue Trends Heatmap**: Year-by-month analysis of revenue.
 - **Top Products and Customers**: Contribution to overall revenue.
-- **ARIMA Forecast**: Revenue predictions for three future months.
+- **ARIMA and Prophet Forecasts**: Revenue predictions for three future months.
 
 ---
 
